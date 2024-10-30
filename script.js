@@ -1,3 +1,23 @@
+// password-protect.js
+
+function checkPassword() {
+    const correctPassword = "yourPassword"; // Set your password here
+    let userPassword = prompt("Please enter the password:");
+
+    if (userPassword === correctPassword) {
+        document.getElementById("protected-content").style.display = "block";
+    } else {
+        alert("Incorrect password. Access denied.");
+        // Optionally, you can redirect the user or give them another chance:
+        // window.location.href = "error.html"; 
+        // Or, call checkPassword() again if you want to loop until correct.
+    }
+}
+
+// Run the password check on page load
+window.onload = checkPassword;
+
+
 function openPdf(pdfUrl) {
     const modal = document.getElementById("pdfModal");
     const pdfViewer = document.getElementById("pdfViewer");

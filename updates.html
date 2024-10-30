@@ -1,38 +1,58 @@
-<script src="pdfjs/pdf.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lambda Life</title>
+    <title>Lambda Life - Updates</title>
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <script>
+        function checkPassword() {
+            const correctPassword = "bostinky24"; // Set the desired password
+
+            // Check if password is already stored in session
+            if (sessionStorage.getItem("accessGranted") === "true") {
+                document.getElementById("protected-content").style.display = "block";
+                return;
+            }
+
+            // Prompt for password if not already stored
+            let userPassword = prompt("Please enter the password:");
+
+            if (userPassword === correctPassword) {
+                sessionStorage.setItem("accessGranted", "true"); // Store access for this session
+                document.getElementById("protected-content").style.display = "block";
+            } else {
+                alert("Incorrect password. Access denied.");
+                checkPassword(); // Re-prompt if incorrect
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="checkPassword()">
 
-<!-- Navbar -->
-<header class="navbar">
-    <nav class="nav-content">
-        <div href="#" class="logo">🔥 PIC Fuck Shit</div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="updates.html">Updates</a></li>
-            <li><a href="https://drive.google.com/drive/u/2/folders/1RLuiaPaCh2yblmsGMQ-k6HO3An_Kki4H" target="_blank">Media</a></li> <!-- Link to Media page -->
-        </ul>
-    </nav>
-</header>
+<div id="protected-content" style="display: none;">
+    <!-- Navbar -->
+    <header class="navbar">
+        <nav class="nav-content">
+            <div href="#" class="logo">🔥 PIC Updates</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="updates.html">Updates</a></li>
+                <li><a href="https://drive.google.com/drive/u/2/folders/1RLuiaPaCh2yblmsGMQ-k6HO3An_Kki4H" target="_blank">Media</a></li>
+            </ul>
+        </nav>
+    </header>
 
-
-<!-- Banner -->
-<section class="banner">
-    <div class="banner-bg" style="background-image: url('picbanner.jpg');"></div>
-    <div class="banner-overlay"></div>
-    <div class="banner-text">
-        <h1>PIC Updates</h1>
-        <p>Curated by PIC (no shit)</p>
-    </div>
-</section>
-
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-bg" style="background-image: url('picbanner.jpg');"></div>
+        <div class="banner-overlay"></div>
+        <div class="banner-text">
+            <h1>PIC Updates</h1>
+            <p>Curated by PIC (no shit)</p>
+        </div>
+    </section>
 
     <section id="home" class="pdf-gallery">
         <div class="pdf-item" onclick="openPdf('pdfs/updates1.pdf')">
@@ -44,10 +64,9 @@
         <div class="pdf-item" onclick="openPdf('pdfs/updates3.pdf')">
             <img src="thumbnails/updates3thumb.jpg" alt="Update 3 Coming Soon">
         </div>
-        <div class="pdf-item" onclick="openPdf('pdfs/updates1.pdf')">
+        <div class="pdf-item" onclick="openPdf('pdfs/updates4.pdf')">
             <img src="thumbnails/updates4thumb.jpg" alt="Update 4 Coming Soon">
         </div>
-
     </section>
 
     <!-- PDF Modal -->
@@ -55,8 +74,9 @@
         <span class="close" onclick="closePdf()">&times;</span>
         <embed id="pdfViewer" type="application/pdf" width="90%" height="90%" />
     </div>
-    
-    <script src="pdfjs/pdf.min.js"></script>
-    <script src="script.js"></script>
+</div> <!-- End of protected content -->
+
+<script src="pdfjs/pdf.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>

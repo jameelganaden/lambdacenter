@@ -1,4 +1,3 @@
-<script src="pdfjs/pdf.min.js"></script>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,26 +6,46 @@
     <title>Lambda Life</title>
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+    <script>
+        function checkPassword() {
+            const correctPassword = "bostinky24"; // Set the desired password
+
+            // Check if password is already stored in session
+            if (sessionStorage.getItem("accessGranted") === "true") {
+                document.getElementById("protected-content").style.display = "block";
+                return;
+            }
+
+            // Prompt for password if not already stored
+            let userPassword = prompt("Please enter the password:");
+
+            if (userPassword === correctPassword) {
+                sessionStorage.setItem("accessGranted", "true"); // Store access for this session
+                document.getElementById("protected-content").style.display = "block";
+            } else {
+                alert("Incorrect password. Access denied.");
+                checkPassword(); // Re-prompt if incorrect
+            }
+        }
+    </script>
 </head>
-<body>
+<body onload="checkPassword()">
+
+<div id="protected-content" style="display: none;">
     <!-- Navbar -->
-<!-- Navbar -->
-<!-- Navbar -->
-<header class="navbar">
-    <nav class="nav-content">
-        <div href="#" class="logo">
-            <img src="taddelogo.png" alt="Logo" class="logo-image"> <!-- Adjust path to your logo -->
-            TaddeBros
-        </div>
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="updates.html">Updates</a></li>
-            <li><a href="https://drive.google.com/drive/u/2/folders/1RLuiaPaCh2yblmsGMQ-k6HO3An_Kki4H" target="_blank">Media</a></li>
-        </ul>
-    </nav>
-</header>
-
-
+    <header class="navbar">
+        <nav class="nav-content">
+            <div class="logo">
+                <img src="taddelogo.png" alt="Logo" class="logo-image"> <!-- Adjust path to your logo -->
+                TaddeBros
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="updates.html">Updates</a></li>
+                <li><a href="https://drive.google.com/drive/u/2/folders/1RLuiaPaCh2yblmsGMQ-k6HO3An_Kki4H" target="_blank">Media</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <!-- Banner -->
     <section class="banner">
@@ -61,8 +80,9 @@
         <span class="close" onclick="closePdf()">&times;</span>
         <embed id="pdfViewer" type="application/pdf" width="90%" height="90%" />
     </div>
-    
-    <script src="pdfjs/pdf.min.js"></script>
-    <script src="script.js"></script>
+</div> <!-- End of protected content -->
+
+<script src="pdfjs/pdf.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
