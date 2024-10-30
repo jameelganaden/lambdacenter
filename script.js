@@ -28,6 +28,7 @@ function openPdf(pdfUrl) {
     const modal = document.getElementById("pdfModal");
     const pdfViewer = document.getElementById("pdfViewer");
     pdfViewer.src = pdfUrl;
+    pdfModal.style.display = "flex";
     modal.classList.add("active");
 }
 
