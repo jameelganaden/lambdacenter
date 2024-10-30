@@ -1,0 +1,61 @@
+<script src="pdfjs/pdf.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lambda Life</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <nav class="nav-content">
+        <a href="#" class="logo">PIC Fuck Shit</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="updates.html">Updates</a></li>
+            <li><a href="https://drive.google.com/drive/u/2/folders/1RLuiaPaCh2yblmsGMQ-k6HO3An_Kki4H" target="_blank">Media</a></li> <!-- Link to Media page -->
+        </ul>
+    </nav>
+</header>
+
+
+<!-- Banner -->
+<section class="banner">
+    <div class="banner-bg" style="background-image: url('picbanner.jpg');"></div>
+    <div class="banner-overlay"></div>
+    <div class="banner-text">
+        <h1>PIC Updates</h1>
+        <p>Curated by PIC (no shit)</p>
+    </div>
+</section>
+
+
+    <section id="home" class="pdf-gallery">
+        <div class="pdf-item" onclick="openPdf('pdfs/updates1.pdf')">
+            <img src="thumbnails/updates1thumb.jpg" alt="Update 1">
+        </div>
+        <div class="pdf-item" onclick="openPdf('pdfs/updates2.pdf')">
+            <img src="thumbnails/updates2thumb.jpg" alt="Update 2 Coming Soon">
+        </div>
+        <div class="pdf-item" onclick="openPdf('pdfs/updates3.pdf')">
+            <img src="thumbnails/updates3thumb.jpg" alt="Update 3 Coming Soon">
+        </div>
+        <div class="pdf-item" onclick="openPdf('pdfs/updates1.pdf')">
+            <img src="thumbnails/updates4thumb.jpg" alt="Update 4 Coming Soon">
+        </div>
+
+    </section>
+
+    <!-- PDF Modal -->
+    <div id="pdfModal" class="modal">
+        <span class="close" onclick="closePdf()">&times;</span>
+        <embed id="pdfViewer" type="application/pdf" width="90%" height="90%" />
+    </div>
+    
+    <script src="pdfjs/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
