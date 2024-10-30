@@ -7,8 +7,8 @@
 }
 
 body {
-    background-color: #f5f5dc; /* Soft beige and cream white mix */
-    color: #333;
+    background-color: #F5FFF3; /* Soft beige and cream white mix */
+    color: #00584B;
 }
 
 /* Navbar */
@@ -16,7 +16,7 @@ body {
     position: sticky;
     top: 0;
     width: 100%;
-    background-color: #333;
+    background-color: #00584B;
     color: white;
     z-index: 10;
 }
@@ -31,9 +31,16 @@ body {
 .logo {
     font-size: 24px;
     font-weight: bold;
-    color: white;
+    color: #F5FFF3;
     text-decoration: none;
 }
+
+.logo-image {
+    width: 50px; /* Set width to 20px for a smaller logo */
+    height: auto; /* Maintain aspect ratio */
+    margin-right: -10px; /* Adjust spacing between logo and text if needed */
+}
+
 
 .nav-content ul {
     list-style: none;
@@ -43,18 +50,8 @@ body {
 }
 
 .nav-content a {
-    color: white;
+    color: #F5FFF3;
     text-decoration: none;
-}
-
-.banner-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 20px;
 }
 
 /* Banner */
@@ -92,7 +89,7 @@ body {
 
 .banner-text {
     position: relative;
-    color: white;
+    color: #F5FFF3;
     text-align: center;
     z-index: 3; /* Ensures text is above the overlay */
     padding: 20px;
@@ -117,7 +114,7 @@ body {
 }
 
 .pdf-item {
-    background-color: #444;
+    background-color: #00584B;
     color: white;
     padding: 20px;
     text-align: center;
@@ -127,7 +124,7 @@ body {
 }
 
 .pdf-item:hover {
-    background-color: #333;
+    background-color: #006b5b;
 }
 
 /* CSS to style the modal */
