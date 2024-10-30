@@ -1,0 +1,214 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #f5f5dc; /* Soft beige and cream white mix */
+    color: #333;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    color: white;
+    z-index: 10;
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-content ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-left: auto;
+}
+
+.nav-content a {
+    color: white;
+    text-decoration: none;
+}
+
+.banner-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left: 20px;
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    overflow: hidden;
+}
+
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('family.jpg'); /* Background image */
+    background-size: cover;
+    background-position: center;
+    filter: blur(5px); /* Blur effect */
+    z-index: 1; /* Layer behind text */
+}
+
+/* Dark overlay behind text */
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Slight dark overlay */
+    z-index: 2;
+}
+
+.banner-text {
+    position: relative;
+    color: white;
+    text-align: center;
+    z-index: 3; /* Ensures text is above the overlay */
+    padding: 20px;
+}
+
+.banner-text h1 {
+    font-size: 56px;
+    font-weight: bold;
+}
+
+.banner-text p {
+    font-size: 18px;
+}
+
+
+/* PDF Gallery */
+.pdf-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 30px;
+}
+
+.pdf-item {
+    background-color: #444;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.pdf-item:hover {
+    background-color: #333;
+}
+
+/* CSS to style the modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* PDF Gallery */
+.pdf-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 30px;
+}
+
+/* PDF Border Container */
+.pdf-border {
+    padding: 6px; /* Space for border effect */
+    background-color: #e0e0e0; /* Light gray border color */
+    border-radius: 14px; /* Slightly larger than the .pdf-item to show the border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PDF Item */
+.pdf-item {
+    position: relative;
+    border-radius: 10px; /* Slightly smaller than the .pdf-border for contrast */
+    overflow: hidden;
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.pdf-item:hover {
+    transform: scale(1.05);
+}
+
+/* Thumbnail Image */
+.pdf-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
+}
+
+/* Overlay Text */
+.pdf-item p {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 0 0 10px 10px;
+    margin: 0;
+}

@@ -1,0 +1,53 @@
+<script src="pdfjs/pdf.min.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lambda Life</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <header class="navbar">
+        <nav class="nav-content">
+            <a href="#" class="logo">Lambda</a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#media">Media</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-bg"></div>
+        <div class="banner-overlay"></div>
+        <div class="banner-text">
+            <h1>Lambda Life</h1>
+            <p>Curated by Jam and JT</p>
+        </div>
+    </section>
+
+    <section id="home" class="pdf-gallery">
+        <div class="pdf-item" onclick="openPdf('pdfs/news1.pdf')">
+            <img src="thumbnails/news1thumb.jpg" alt="Newsletter 1">
+        </div>
+        <div class="pdf-item" onclick="openPdf('pdfs/news2.pdf')">
+            <img src="thumbnails/news2thumb.jpg" alt="Newsletter 2">
+        </div>
+        <div class="pdf-item" onclick="openPdf('pdfs/news3.pdf')">
+            <img src="thumbnails/news3thumb.jpg" alt="Newsletter 2">
+        </div>
+    </section>
+
+    <!-- PDF Modal -->
+    <div id="pdfModal" class="modal">
+        <span class="close" onclick="closePdf()">&times;</span>
+        <embed id="pdfViewer" type="application/pdf" width="90%" height="90%" />
+    </div>
+    
+    <script src="pdfjs/pdf.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
