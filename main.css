@@ -106,59 +106,62 @@ body {
     font-family: 'Fredoka One', cursive; /* Bubbly font for the title */
 }
 
-
 /* PDF Gallery */
 .pdf-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    gap: 20px;
     padding: 30px;
 }
 
+/* PDF Border Container */
+.pdf-border {
+    padding: 6px; /* Space for border effect */
+    background-color: #e0e0e0; /* Light gray border color */
+    border-radius: 14px; /* Slightly larger than the .pdf-item to show the border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* PDF Item */
 .pdf-item {
     background-color: #00584B;
     color: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 8px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
     cursor: pointer;
-    transition: background-color 0.3s;
+    text-align: center;
+    transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s; /* Combine transitions */
+    padding-top: 20px; /* Space for title above */
+    padding: 20px;
 }
 
+/* PDF Item Hover */
 .pdf-item:hover {
     background-color: #006b5b;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 107, 91, 0.8); /* Glowing effect */
 }
 
-.pdf-gallery .pdf-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
+
+/* Thumbnail Image */
+.pdf-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    display: block;
 }
 
+/* PDF Title */
 .pdf-title {
-    margin: 0 0 10px; /* Adds a 10px gap between the title and the image */
-    font-size: 16px;
+    margin-bottom: 10px; /* Space between title and pdf-item */
+    font-size: 26px;
     font-weight: bold;
+    color: #00584B; /* Match the theme color */
     text-align: center;
-}
-
-/* Overlay Text */
-.pdf-item p {
-    position: absolute;
-    top: 30px; /* Keep text at the top */
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.9); /* Increase opacity */
-    color: white;
-    font-weight: bold;
-    padding: 10px 10px; /* Adjust padding for a smaller bar */
-    max-height: 40px; /* Restrict height to prevent stretching */
-    margin: 0;
-    overflow: hidden; /* Prevents text from overflowing the limited height */
-    display: flex;
-    align-items: center; /* Centers text vertically */
-    justify-content: center; /* Centers text horizontally */
 }
 
 /* CSS to style the modal */
@@ -186,46 +189,4 @@ body {
     color: white;
     font-size: 24px;
     cursor: pointer;
-}
-
-/* PDF Gallery */
-.pdf-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-    padding: 30px;
-}
-
-/* PDF Border Container */
-.pdf-border {
-    padding: 6px; /* Space for border effect */
-    background-color: #e0e0e0; /* Light gray border color */
-    border-radius: 14px; /* Slightly larger than the .pdf-item to show the border */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* PDF Item */
-.pdf-item {
-    position: relative;
-    border-radius: 10px;
-    overflow: hidden;
-    cursor: pointer;
-    text-align: center;
-    transition: transform 0.3s;
-    padding-top: 20px; /* Space for title above */
-}
-
-.pdf-item:hover {
-    transform: scale(1.05);
-}
-
-/* Thumbnail Image */
-.pdf-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 10px;
-    display: block;
 }
