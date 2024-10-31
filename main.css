@@ -209,11 +209,12 @@ body {
 /* PDF Item */
 .pdf-item {
     position: relative;
-    border-radius: 10px; /* Slightly smaller than the .pdf-border for contrast */
+    border-radius: 10px;
     overflow: hidden;
     cursor: pointer;
     text-align: center;
     transition: transform 0.3s;
+    padding-top: 20px; /* Space for title above */
 }
 
 .pdf-item:hover {
