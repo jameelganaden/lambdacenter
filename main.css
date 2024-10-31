@@ -72,7 +72,7 @@ body {
     height: 100%;
     background-size: cover;
     background-position: center;
-    filter: blur(5px); /* Blur effect */
+    filter: blur(0px); /* Blur effect */
     z-index: 1; /* Layer behind text */
 }
 
@@ -127,6 +127,38 @@ body {
 
 .pdf-item:hover {
     background-color: #006b5b;
+}
+
+.pdf-gallery .pdf-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.pdf-title {
+    margin: 0 0 10px; /* Adds a 10px gap between the title and the image */
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Overlay Text */
+.pdf-item p {
+    position: absolute;
+    top: 30px; /* Keep text at the top */
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.8); /* Increase opacity */
+    color: white;
+    font-weight: bold;
+    padding: 10px 10px; /* Adjust padding for a smaller bar */
+    max-height: 40px; /* Restrict height to prevent stretching */
+    margin: 0;
+    overflow: hidden; /* Prevents text from overflowing the limited height */
+    display: flex;
+    align-items: center; /* Centers text vertically */
+    justify-content: center; /* Centers text horizontally */
 }
 
 /* CSS to style the modal */
@@ -195,18 +227,4 @@ body {
     object-fit: cover;
     border-radius: 10px;
     display: block;
-}
-
-/* Overlay Text */
-.pdf-item p {
-    position: absolute;
-    bottom: 10px;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
-    font-weight: bold;
-    padding: 10px;
-    border-radius: 0 0 10px 10px;
-    margin: 0;
 }
