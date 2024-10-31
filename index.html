@@ -28,6 +28,35 @@
                 checkPassword(); // Re-prompt if incorrect
             }
         }
+
+        function isMobileDevice() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        function openPdf(pdfUrl, mobileLink) {
+            if (isMobileDevice()) {
+                window.location.href = mobileLink; // Redirect to mobile link
+            } else {
+                const modal = document.getElementById("pdfModal");
+                const pdfViewer = document.getElementById("pdfViewer");
+                pdfViewer.src = pdfUrl;
+                modal.classList.add("active");
+            }
+        }
+
+        function closePdf() {
+            const modal = document.getElementById("pdfModal");
+            const pdfViewer = document.getElementById("pdfViewer");
+            pdfViewer.src = ""; // Clear the src to stop loading the PDF
+            modal.classList.remove("active"); // Hide the modal
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("pdfModal");
+            if (event.target === modal) {
+                closePdf();
+            }
+        };
     </script>
 </head>
 <body onload="checkPassword()">
@@ -61,31 +90,31 @@
     <section id="home" class="pdf-gallery">
         <div class="pdf-item-container">
             <h3 class="pdf-title">Newsletter 1</h3>
-            <div class="pdf-item" onclick="openPdf('pdfs/news1.pdf')">
+            <div class="pdf-item" onclick="openPdf('pdfs/news1.pdf', 'https://drive.google.com/file/d/1rtVuW13QcQ2Ec9eozRnlKbAZvWjEZoeu/view?usp=sharing')">
                 <img src="thumbnails/news1thumb.jpg" alt="Newsletter 1">
             </div>
         </div>
         <div class="pdf-item-container">
             <h3 class="pdf-title">Newsletter 2</h3>
-            <div class="pdf-item" onclick="openPdf('pdfs/news2.pdf')">
+            <div class="pdf-item" onclick="openPdf('pdfs/news2.pdf', 'https://drive.google.com/file/d/1UdykwFBeheTQFLaKZElUu92IZwk5eEyM/view?usp=sharing')">
                 <img src="thumbnails/news2thumb.jpg" alt="Newsletter 2">
             </div>
         </div>
         <div class="pdf-item-container">
             <h3 class="pdf-title">Newsletter 3</h3>
-            <div class="pdf-item" onclick="openPdf('pdfs/news3.pdf')">
+            <div class="pdf-item" onclick="openPdf('pdfs/news3.pdf', 'https://drive.google.com/file/d/1CDcofBVN5XmFd-epuObPbuvo_JvuQy-p/view?usp=sharing')">
                 <img src="thumbnails/news3thumb.jpg" alt="Newsletter 3">
             </div>
         </div>
         <div class="pdf-item-container">
             <h3 class="pdf-title">Newsletter 4 (Coming Soon)</h3>
-            <div class="pdf-item" onclick="openPdf('pdfs/news4.pdf')">
+            <div class="pdf-item" onclick="openPdf('pdfs/news4.pdf', '')">
                 <img src="blank.png" alt="">
             </div>
         </div>
         <div class="pdf-item-container">
             <h3 class="pdf-title">Newsletter 5 (Coming Soon)</h3>
-            <div class="pdf-item" onclick="openPdf('pdfs/news5.pdf')">
+            <div class="pdf-item" onclick="openPdf('pdfs/news5.pdf', '')">
                 <img src="blank.png" alt="">
             </div>
         </div>

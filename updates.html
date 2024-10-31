@@ -28,6 +28,35 @@
                 checkPassword(); // Re-prompt if incorrect
             }
         }
+
+        function isMobileDevice() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+
+        function openPdf(pdfUrl, mobileLink) {
+            if (isMobileDevice()) {
+                window.location.href = mobileLink; // Redirect to mobile link
+            } else {
+                const modal = document.getElementById("pdfModal");
+                const pdfViewer = document.getElementById("pdfViewer");
+                pdfViewer.src = pdfUrl;
+                modal.classList.add("active");
+            }
+        }
+
+        function closePdf() {
+            const modal = document.getElementById("pdfModal");
+            const pdfViewer = document.getElementById("pdfViewer");
+            pdfViewer.src = ""; // Clear the src to stop loading the PDF
+            modal.classList.remove("active"); // Hide the modal
+        }
+
+        window.onclick = function(event) {
+            const modal = document.getElementById("pdfModal");
+            if (event.target === modal) {
+                closePdf();
+            }
+        };
     </script>
 </head>
 <body onload="checkPassword()">
@@ -50,38 +79,43 @@
         <div class="banner-bg" style="background-image: url('picbanner.jpg');"></div>
         <div class="banner-overlay"></div>
         <div class="banner-text">
-            <h1>PIC Updates</h1>
-            <p>Curated by PIC (no shit)</p>
+            <h1>Updates</h1>
+            <p>Here are the latest updates!</p>
         </div>
     </section>
 
-    <section id="home" class="pdf-gallery">
+    <section id="updates" class="pdf-gallery">
         <div class="pdf-item-container">
             <h3 class="pdf-title">Update 1</h3>
-            <div class="pdf-item" onclick="openPdf('pdfs/updates1.pdf')">
-                <img src="thumbnails/updates1thumb.jpg" alt="Update 1">
+            <div class="pdf-item" onclick="openPdf('pdfs/update1.pdf', 'https://docs.google.com/document/d/1z1mLMS6gO7X5WgLApjR0cPtGJs320OrsryDmzCrkOcQ/edit?usp=sharing')">
+                <img src="thumbnails/update1thumb.jpg" alt="Update 1">
             </div>
         </div>
         <div class="pdf-item-container">
-            <h3 class="pdf-title">Update 2 (Coming Soon)</h3>
-            <div class="pdf-item" onclick="openPdf('pdfs/updates2.pdf')">
-                <img src="blank.png" alt="">
+            <h3 class="pdf-title">Update 2</h3>
+            <div class="pdf-item" onclick="openPdf('pdfs/update2.pdf', '')">
+                <img src="thumbnails/update2thumb.jpg" alt="Update 2">
             </div>
         </div>
         <div class="pdf-item-container">
-            <h3 class="pdf-title">Update 3 (Coming Soon)</h3>
-            <div class="pdf-item" onclick="openPdf('pdfs/updates3.pdf')">
-                <img src="blank.png" alt="">
+            <h3 class="pdf-title">Update 3</h3>
+            <div class="pdf-item" onclick="openPdf('pdfs/update3.pdf', '')">
+                <img src="thumbnails/update3thumb.jpg" alt="Update 3">
             </div>
         </div>
         <div class="pdf-item-container">
             <h3 class="pdf-title">Update 4 (Coming Soon)</h3>
-            <div class="pdf-item" onclick="openPdf('pdfs/updates4.pdf')">
+            <div class="pdf-item" onclick="openPdf('pdfs/update4.pdf', '')">
+                <img src="blank.png" alt="">
+            </div>
+        </div>
+        <div class="pdf-item-container">
+            <h3 class="pdf-title">Update 5 (Coming Soon)</h3>
+            <div class="pdf-item" onclick="openPdf('pdfs/update5.pdf', '')">
                 <img src="blank.png" alt="">
             </div>
         </div>
     </section>
-    
 
     <!-- PDF Modal -->
     <div id="pdfModal" class="modal">
