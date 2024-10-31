@@ -145,6 +145,14 @@ body {
     box-shadow: 0 0 15px rgba(0, 107, 91, 0.8); /* Glowing effect */
 }
 
+.pdf-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Use the same color as the surrounding text */
+}
+
+.pdf-link:hover {
+    color: inherit; /* Keep the same color on hover */
+}
 
 /* Thumbnail Image */
 .pdf-item img {
