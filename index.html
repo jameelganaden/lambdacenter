@@ -10,16 +10,16 @@
     <script>
         function checkPassword() {
             const correctPassword = "bostinky24"; // Set the desired password
-
+    
             // Check if password is already stored in session
             if (sessionStorage.getItem("accessGranted") === "true") {
                 document.getElementById("protected-content").style.display = "block";
                 return;
             }
-
+    
             // Prompt for password if not already stored
             let userPassword = prompt("Please enter the password:");
-
+    
             if (userPassword === correctPassword) {
                 sessionStorage.setItem("accessGranted", "true"); // Store access for this session
                 document.getElementById("protected-content").style.display = "block";
@@ -28,36 +28,45 @@
                 checkPassword(); // Re-prompt if incorrect
             }
         }
-
-        function isMobileDevice() {
-            return /Mobi|Android/i.test(navigator.userAgent);
-        }
-
+    
         function openPdf(pdfUrl, mobileLink) {
+            // Check if the user is on a mobile device
             if (isMobileDevice()) {
-                window.location.href = mobileLink; // Redirect to mobile link
+                // Redirect to the mobile link
+                window.location.href = mobileLink;
             } else {
+                // Open the PDF in the viewer
                 const modal = document.getElementById("pdfModal");
                 const pdfViewer = document.getElementById("pdfViewer");
                 pdfViewer.src = pdfUrl;
                 modal.classList.add("active");
             }
         }
-
+    
+        // Function to detect if the user is on a mobile device
+        function isMobileDevice() {
+            return /Mobi|Android/i.test(navigator.userAgent);
+        }
+    
         function closePdf() {
             const modal = document.getElementById("pdfModal");
             const pdfViewer = document.getElementById("pdfViewer");
             pdfViewer.src = ""; // Clear the src to stop loading the PDF
             modal.classList.remove("active"); // Hide the modal
         }
-
+    
+        // Close modal when clicking outside the PDF area
         window.onclick = function(event) {
             const modal = document.getElementById("pdfModal");
             if (event.target === modal) {
                 closePdf();
             }
         };
+    
+        // Run the password check on page load
+        window.onload = checkPassword;
     </script>
+    
 </head>
 <body onload="checkPassword()">
 
