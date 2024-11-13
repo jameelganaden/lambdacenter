@@ -1,7 +1,8 @@
-function openProfilePopup(photoUrl, blurbText) {
+function openProfilePopup(photoUrl, blurbText, blurbText2) {
     // Set the profile photo and text
     document.getElementById("profilePhoto").src = photoUrl;
     document.getElementById("profileBlurb").textContent = blurbText;
+    document.getElementById("profileBlurb2").textContent = blurbText2;
     
     // Display the modal
     const modal = document.getElementById("profileModal");
