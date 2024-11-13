@@ -1,0 +1,202 @@
+/* Reset and basic styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Fredoka One', cursive;
+}
+
+body {
+    background-color: #F5FFF3; /* Soft beige and cream white mix */
+    color: #00584B;
+}
+
+/* Navbar */
+.navbar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: #00584B;
+    color: white;
+    z-index: 10;
+}
+
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #F5FFF3;
+}
+
+.nav-content ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-content a {
+    color: #F5FFF3;
+    text-decoration: none;
+}
+
+/* Banner */
+.banner {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    overflow: hidden;
+}
+
+.banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: blur(0px);
+    z-index: 1;
+}
+
+.banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.banner-text {
+    position: relative;
+    color: #F5FFF3;
+    text-align: center;
+    z-index: 3;
+    padding: 20px;
+}
+
+.banner-text h1 {
+    font-size: 50px;
+}
+
+.banner-text p {
+    font-size: 18px;
+}
+
+/* Profile Gallery */
+.profile-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Default to 3 columns */
+    gap: 30px;
+    padding: 30px;
+    text-align: center;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .profile-gallery {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+    }
+}
+
+@media (max-width: 600px) {
+    .profile-gallery {
+        grid-template-columns: 1fr; /* 1 column on mobile */
+    }
+}
+
+.profile-item {
+    cursor: pointer;
+    text-align: center;
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.profile-item:hover .profile-pic {
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Modal for Profile Popup */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 15;
+}
+
+.modal-content {
+    position: relative; /* Relative positioning for close button */
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    width: 450px;
+    height: 300px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.profile-blurb {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Close Button inside Modal Box */
+.close-button {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: #00584B;
+    color: #fff;
+    font-size: 15px;
+    font-weight: bold;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none; /* Remove any default button border */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Optional shadow for a more elevated look */
+}
+
+.close-button:hover {
+    background-color: #006b5b;
+}
+
+
+

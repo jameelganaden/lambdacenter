@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lambda Life - Team Profiles</title>
+    <link rel="stylesheet" href="pic.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div id="protected-content">
+    <!-- Navbar -->
+    <header class="navbar">
+        <nav class="nav-content">
+            <div class="logo">🤡 Meet PIC</div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="updates.html">Updates</a></li>
+                <li><a href="pic.html">PIC</a></li>
+                <li><a href="https://drive.google.com/drive/u/2/folders/1RLuiaPaCh2yblmsGMQ-k6HO3An_Kki4H" target="_blank">Media</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner -->
+    <section class="banner">
+        <div class="banner-bg" style="background-image: url('picbanner.jpg');"></div>
+        <div class="banner-overlay"></div>
+        <div class="banner-text">
+            <h1>Meet Your PIC</h1>
+            <p>the people who ran your program :D</p>
+        </div>
+    </section>
+
+    <!-- Profile Picture Gallery -->
+    <section class="profile-gallery">
+        <!-- Profile items (6 team members) -->
+            <!-- box photo, blurb -->
+        <div class="profile-item" onclick="openProfilePopup('profiles/person1.jpg', 'peepee 2')">  
+            <img src="blank.png" alt="Jameel Ganaden pfp" class="profile-pic">
+            <p>Jameel Ganaden</p>
+        </div>
+        <div class="profile-item" onclick="openProfilePopup('profiles/person2.jpg', 'vd(ickhead)')">
+            <img src="blank.png" alt="Hye Won Rhee pfp" class="profile-pic">
+            <p>Hye Won Rhee</p>
+        </div>
+        <div class="profile-item" onclick="openProfilePopup('profiles/person3.jpg', 'vp mem(es)')">
+            <img src="blank.png" alt="Alexia Francisco pfp" class="profile-pic">
+            <p>Alexia Francisco</p>
+        </div>
+        <div class="profile-item" onclick="openProfilePopup('profiles/person4.jpg', 'peepee 1')">
+            <img src="blank.png" alt="Justin Tan pfp" class="profile-pic">
+            <p>Justin Tan</p>
+        </div>
+        <div class="profile-item" onclick="openProfilePopup('profiles/person5.jpg', 'd(ickhead)')">
+            <img src="blank.png" alt="Akshat Jain pfp" class="profile-pic">
+            <p>Akshat Jain</p>
+        </div>
+        <div class="profile-item" onclick="openProfilePopup('profiles/person6.jpg', 'pres(entation killer???)')">
+            <img src="blank.png" alt="Bowie Szeto pfp" class="profile-pic">
+            <p>Bowie Szeto</p>
+        </div>
+    </section>
+
+<!-- Profile Modal -->
+<div id="profileModal" class="modal">
+    <div class="modal-content">
+        <div class="close-button" onclick="closeProfilePopup()">&times;</div>
+        <img id="profilePhoto" class="profile-photo" src="" alt="Profile">
+        <p id="profileBlurb" class="profile-blurb">Profile text goes here...</p>
+    </div>
+</div>
+
+</div> <!-- End of protected content -->
+
+<script src="pic.js"></script>
+</body>
+</html>
