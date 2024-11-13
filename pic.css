@@ -118,7 +118,15 @@ body {
 .profile-item {
     cursor: pointer;
     text-align: center;
+    padding: 0; /* Remove any extra padding */
+    margin: 0; /* Remove any extra margin */
 }
+
+.profile-item p {
+    font-size: 30px; /* Adjust the size as needed */
+    color: #00584B; /* Optional: Matches the site color scheme */
+}
+
 
 .profile-pic {
     width: 220px;
